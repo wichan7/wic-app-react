@@ -5,34 +5,34 @@ import './App.css';
 
 function App() {
 
-  let [title, modifyTitle] = useState('글제목1');
-  let [like, modifyLike] = useState(0, 0);
-
   return (
     <div className="App">
-      <div className="toolbar">
-        <img src={logo} className="logo"/>
+      <Toolbar />
+      <div 
+        className="login-form">
+        <span className="title">로그인</span>
+        <input id="userId" type="text" placeholder="ID"/>
+        <input id="password" type="password" placeholder="password"/>
+        <div id="submit" type="submit" className="submit">제출</div>
       </div>
 
-      <div className="">
-        <div>{title}</div>
-        <div>😍{like}</div>
-        <button onClick={ () => modifyLike(like + 1)}>좋아요</button>
-      </div>
-    
-      <Footer />
     </div>
   );
 }
 
-function Footer() {
+function Toolbar() {
   return (
     <>
-      <div style={ {"textAlign": "center"} }>
-        바닥
+      <div className="toolbar">
+        <img src={logo} className="logo"/>
+        <span className="title">wichan<b>Insight</b></span>
       </div>
     </>
   )
+}
+
+function login() {
+  
 }
 
 export default App;
