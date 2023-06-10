@@ -59,4 +59,9 @@ input::content {
   color: #ffffff;
   border: 1px solid #bdbdbd;
   border-radius: 12px;
+  cursor: pointer;
+}
+
+.login-form > .submit:hover {
+  opacity: 0.8;
 }
