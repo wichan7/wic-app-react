@@ -9,7 +9,8 @@ export async function doLogin(data) {
     body: JSON.stringify(data)
   };
 
-  fetch(uri, options)
-    .then( (res) => console.log(res) )
-    .catch( (err) => console.log(err) );
+  let result = fetch(uri, options)
+    .then( (res) => res.json());
+  
+  return result;
 }

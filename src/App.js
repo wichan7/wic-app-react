@@ -23,7 +23,9 @@ function App() {
   }
   const handleSubmit = ( event ) => {
     event.preventDefault();
-    doLogin({userId, password});
+    doLogin({userId, password})
+    .then( (data) => alert(data.resultMessage) )
+    .catch( (err) => {console.log(err)} )
   }
 
   return (
