@@ -1,15 +1,19 @@
 /* Use react functions */
 import React from 'react';
-import { useRef, useState } from 'react';
-/* Use 3rd party modules */
-/* Use my modules */
-import { doLogin } from './modules/auth';
+import { useRef, useState, useContext } from 'react';
+/* Use Components */
+import Toolbar from './components/Toolbar';
+/* Use Contexts */
+import { UserContext } from "./context/UserContext";
+/* Use my utils */
+import { doLogin } from './utils/auth';
 /* Use resources (image, gif ...etc) */
-import logo from './logo.svg';
 import './App.css';
 
 /* Main */
 function App() {
+  const { sessionId } = useContext(UserContext);
+  console.log(sessionId)
   /* define states */
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
@@ -42,18 +46,6 @@ function App() {
       </form>
     </div>
   );
-}
-
-/* Toolbar Component */
-function Toolbar() {
-  return (
-    <>
-      <div className="toolbar">
-        <img src={logo} className="logo"/>
-        <span className="title">wichan<b>Insight</b></span>
-      </div>
-    </>
-  )
 }
 
 export default App;
