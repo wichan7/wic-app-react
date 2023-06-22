@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 
+/* Use resources (image, gif ...etc) */
 import logo from '../logo.svg';
+import './Toolbar.css';
+
 const Toolbar = () => {
   return (
     <>

@@ -35,15 +35,21 @@ function App() {
   return (
     <div className="App">
       <Toolbar />
-      <form onSubmit={handleSubmit}
-        className="login-form">
-        <span className="title">로그인</span>
-        <input type="text" name="userId" placeholder="ID"
-          value={userId} onChange={handleChange}/>
-        <input type="password" name="password" placeholder="password"
-          value={password} onChange={handleChange}/>
-        <input type="submit" className="submit" value="제출"/>
-      </form>
+      <div>
+        <form onSubmit={handleSubmit} className="form-login">
+          <span className="title">로그인</span>
+          <input type="text" name="userId" placeholder="ID"
+            value={userId} onChange={handleChange}/>
+          <input type="password" name="password" placeholder="password"
+            value={password} onChange={handleChange}/>
+          <input type="submit" className="submit" value="로그인"/>
+          <div className="multi-buttons">
+            <span>비밀번호 찾기</span>
+            <span>비밀번호 잊기</span>
+            <span>비밀번호 재설정</span>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
