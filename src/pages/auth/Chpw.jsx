@@ -4,7 +4,7 @@ import { doLogin } from '../../utils/auth';
 import './auth.css';
 
 /* Main */
-function Register() {
+function Chpw() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRe, setPasswordRe] = useState("");
@@ -35,7 +35,7 @@ function Register() {
     <>
       <form onSubmit={handleSubmit}>
         {/* title */}
-        <span className="title">회원 가입</span>
+        <span className="title">비밀번호 변경</span>
 
         {/* id */}
         <input type="text" name="userId" placeholder="ID"
@@ -70,4 +70,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Chpw;

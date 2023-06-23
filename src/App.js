@@ -6,6 +6,7 @@ import Toolbar from './components/Toolbar';
 /* Routes */
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
+import Chpw from './pages/auth/Chpw';
 import NotFound from './pages/NotFound';
 /* context */
 import { UserContext } from "./context/UserContext";
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register /> } />
+        <Route path="/chpw" element={<Chpw /> } />
         <Route path="/*" element={<NotFound /> } />
       </Routes>
     </>

@@ -32,7 +32,8 @@ function Login() {
           value={password} onChange={handleChange}/>
         <input type="submit" className="submit" value="로그인"/>
         <div className="multi-buttons">
-          <Link to="/register">비밀번호 찾기</Link>
+          <Link to="/chpw">비밀번호 찾기</Link>
+          <Link to="/register">회원 가입</Link>
         </div>
       </form>
     </>
