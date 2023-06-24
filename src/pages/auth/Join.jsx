@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { doLogin } from '../../utils/auth';
+import { doJoin } from '../../utils/auth';
 import './auth.css';
 
-/* Main */
-function Register() {
+function Join() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRe, setPasswordRe] = useState("");
@@ -26,8 +25,8 @@ function Register() {
   }
   const handleSubmit = ( event ) => {
     event.preventDefault();
-    doLogin({userId, password})
-    .then( (data) => alert(data.resultMessage) )
+    doJoin({userId, password})
+    .then( (data) => alert(data.message) )
     .catch( (err) => {console.log(err)} )
   }
 
@@ -70,4 +69,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Join;

@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import Toolbar from './components/Toolbar';
 /* Routes */
 import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
+import Join from './pages/auth/Join';
 import Chpw from './pages/auth/Chpw';
 import NotFound from './pages/NotFound';
 /* context */
@@ -28,7 +28,7 @@ function App() {
       <Toolbar />
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register /> } />
+        <Route path="/join" element={<Join /> } />
         <Route path="/chpw" element={<Chpw /> } />
         <Route path="/*" element={<NotFound /> } />
       </Routes>

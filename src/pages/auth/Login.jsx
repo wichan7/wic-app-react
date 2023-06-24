@@ -3,22 +3,21 @@ import { Link } from 'react-router-dom';
 import { doLogin } from '../../utils/auth';
 import './auth.css';
 
-/* Main */
 function Login() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleChange = ( event ) => {
+  const handleChange = async ( event ) => {
     if (event.target.name === "userId") {
       setUserId(event.target.value);
     } else if (event.target.name === "password") {
       setPassword(event.target.value);
     }
   }
-  const handleSubmit = ( event ) => {
+  const handleSubmit = async ( event ) => {
     event.preventDefault();
     doLogin({userId, password})
-    .then( (data) => alert(data.resultMessage) )
+    .then( (data) => alert(data.message) )
     .catch( (err) => {console.log(err)} )
   }
 
@@ -33,7 +32,7 @@ function Login() {
         <input type="submit" className="submit" value="로그인"/>
         <div className="multi-buttons">
           <Link to="/chpw">비밀번호 찾기</Link>
-          <Link to="/register">회원 가입</Link>
+          <Link to="/join">회원 가입</Link>
         </div>
       </form>
     </>

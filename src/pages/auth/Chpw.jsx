@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { doLogin } from '../../utils/auth';
 import './auth.css';
 
-/* Main */
 function Chpw() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
