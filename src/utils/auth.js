@@ -1,6 +1,6 @@
 /* request to API SERVER */
 export async function doLogin(data) {
-  const uri = process.env.REACT_APP_SERVER_URI + "/auth/login";
+  const uri = "/auth/login";
   const options = {
     method: "POST",
     headers: {
@@ -16,7 +16,7 @@ export async function doLogin(data) {
 }
 
 export async function doJoin(data) {
-  const uri = process.env.REACT_APP_SERVER_URI + "/auth/join";
+  const uri = "/auth/join";
   const options = {
     method: "POST",
     headers: {
