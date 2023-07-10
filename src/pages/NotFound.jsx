@@ -6,7 +6,7 @@ function NotFound() {
   return (
     <>
       없는 페이지입니다.<br/>
-      <Link to="/login">메인으로</Link>
+      <Link to="/dashboard/login">메인으로</Link>
     </>
   );
 }

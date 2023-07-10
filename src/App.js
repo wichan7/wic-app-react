@@ -19,7 +19,7 @@ function App() {
 
   useEffect( () => {
     if (!isLogin) {
-      navigate("/login");
+      navigate("/dashboard/login");
     }
   } );
 
@@ -27,11 +27,11 @@ function App() {
     <>
       <Toolbar />
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/join" element={<Join /> } />
-        <Route path="/chpw" element={<Chpw /> } />
-        <Route path="/*" element={<NotFound /> } />
+        <Route path="/dashboard/" element={<Login />} />
+        <Route path="/dashboard/login" element={<Login />} />
+        <Route path="/dashboard/join" element={<Join /> } />
+        <Route path="/dashboard/chpw" element={<Chpw /> } />
+        <Route path="/dashboard/*" element={<NotFound /> } />
       </Routes>
     </>
   )
