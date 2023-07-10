@@ -61,7 +61,7 @@ function Join() {
 
         {/* buttons */}
         <div className="multi-buttons">
-          <Link to="/dashboard/login">로그인 하러가기</Link>
+          <Link to="/login">로그인 하러가기</Link>
         </div>
 
       </form>
