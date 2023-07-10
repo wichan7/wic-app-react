@@ -1,6 +1,5 @@
-/* request to API SERVER */
 export async function doLogin(data) {
-  const uri = "/auth/login";
+  const uri = "/api/login";
   const options = {
     method: "POST",
     headers: {
@@ -16,7 +15,7 @@ export async function doLogin(data) {
 }
 
 export async function doJoin(data) {
-  const uri = "/auth/join";
+  const uri = "/api/join";
   const options = {
     method: "POST",
     headers: {
