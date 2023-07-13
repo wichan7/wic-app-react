@@ -7,6 +7,7 @@ import Toolbar from './components/Toolbar';
 import Login from './pages/auth/Login';
 import Join from './pages/auth/Join';
 import Chpw from './pages/auth/Chpw';
+import Dashboard from './pages/dashboard/Dashboard';
 import NotFound from './pages/NotFound';
 /* context */
 import { UserContext } from "./context/UserContext";
@@ -19,7 +20,7 @@ function App() {
 
   useEffect( () => {
     if (!isLogin) {
-      navigate("/login");
+      navigate("/auth/login");
     }
   } );
 
@@ -28,9 +29,10 @@ function App() {
       <Toolbar />
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/join" element={<Join /> } />
-        <Route path="/chpw" element={<Chpw /> } />
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/join" element={<Join /> } />
+        <Route path="/auth/chpw" element={<Chpw /> } />
+        <Route path="/dashboard" element={<Dashboard /> } />
         <Route path="/*" element={<NotFound /> } />
       </Routes>
     </>

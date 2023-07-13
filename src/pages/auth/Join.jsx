@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useRef, useState, useContext, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { doJoin } from '../../utils/auth';
 import './auth.css';
@@ -9,6 +10,7 @@ function Join() {
   const [passwordRe, setPasswordRe] = useState("");
   const [authMethod, setAuthMethod] = useState("");
   const [authCode, setAuthCode] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = ( event ) => {
     if (event.target.name === "userId") {
@@ -26,7 +28,14 @@ function Join() {
   const handleSubmit = ( event ) => {
     event.preventDefault();
     doJoin({userId, password})
-    .then( (data) => alert(data.message) )
+    .then( (data) => {
+      if (data.code === 201) {
+        alert("회원가입에 성공했습니다.");
+        navigate("/auth/login");
+      } else {
+        alert(data.code + " " + data.message);
+      }
+    } )
     .catch( (err) => {console.log(err)} )
   }
 
@@ -61,7 +70,7 @@ function Join() {
 
         {/* buttons */}
         <div className="multi-buttons">
-          <Link to="/login">로그인 하러가기</Link>
+          <Link to="/auth/login">로그인 하러가기</Link>
         </div>
 
       </form>

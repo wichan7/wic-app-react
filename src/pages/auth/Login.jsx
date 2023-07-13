@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useRef, useState, useContext, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { doLogin } from '../../utils/auth';
 import './auth.css';
@@ -6,6 +7,7 @@ import './auth.css';
 function Login() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = async ( event ) => {
     if (event.target.name === "userId") {
@@ -17,7 +19,13 @@ function Login() {
   const handleSubmit = async ( event ) => {
     event.preventDefault();
     doLogin({userId, password})
-    .then( (data) => alert(data.message) )
+    .then( (data) => {
+      if (data.code === 200) {
+        navigate("/dashboard");
+      } else {
+        alert(data.code + " " + data.message);
+      }
+    } )
     .catch( (err) => {console.log(err)} )
   }
 
@@ -31,8 +39,8 @@ function Login() {
           value={password} onChange={handleChange}/>
         <input type="submit" className="submit" value="로그인"/>
         <div className="multi-buttons">
-          <Link to="/chpw">비밀번호 찾기</Link>
-          <Link to="/join">회원 가입</Link>
+          <Link to="/auth/chpw">비밀번호 찾기</Link>
+          <Link to="/auth/join">회원 가입</Link>
         </div>
       </form>
     </>
