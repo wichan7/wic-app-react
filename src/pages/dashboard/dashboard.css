@@ -1,0 +1,47 @@
+.dashboard-root {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.dashboard-root .title {
+    padding: 18px;
+    font-size: 18px;
+    background-color: #fff;
+}
+
+.dashboard-root .dialog-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #eee;
+}
+
+.dashboard-root .dialog-editor ul.option-nav {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 12px 0px;
+    list-style-type : none;
+    background-color: red;
+}
+
+.dashboard-root .dialog-editor ul.option-nav li {
+    margin-right: 20px;
+}
+
+.dashboard-root .dialog-editor .dialog {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.dashboard-root .dialog-editor .dialog .panel {
+    width: 100%;
+    background-color: blue;
+}
+
+.dashboard-root .dialog-editor .dialog .list {
+    width: 300px;
+    background-color: green;
+}
