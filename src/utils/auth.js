@@ -35,6 +35,7 @@ export async function doVerify() {
   const uri = (process.env.REACT_APP_DASHBOARD_URL || "") + "/verify";
   const options = {
     method: "POST",
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json"
     }
@@ -51,6 +52,7 @@ export async function doRefresh() {
   const uri = (process.env.REACT_APP_DASHBOARD_URL || "") + "/refresh";
   const options = {
     method: "POST",
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json"
     }
