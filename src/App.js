@@ -1,6 +1,6 @@
 /* Use react functions */
 import React, { useRef, useState, useContext, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 /* Components */
 import Toolbar from './components/Toolbar';
 /* Routes */
@@ -13,12 +13,28 @@ import NotFound from './pages/NotFound';
 import { UserContext } from "./context/UserContext";
 /* resources */
 import './App.css';
+import { doVerify, doRefresh } from './utils/auth';
 
 function App() {
   const isLogin = true;
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useEffect( () => {
+    console.log(pathname);
+
+    if (pathname.startsWith("/auth")) {
+      return;
+    }
+
+    doRefresh("123")
+    .then( (data) => {
+      console.log(data)
+    } )
+    .catch( (err) => {
+      console.log(err)
+    } )
+
     if (!isLogin) {
       navigate("/auth/login");
     }
