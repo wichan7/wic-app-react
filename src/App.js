@@ -27,18 +27,16 @@ function App() {
 
     doVerify()
     .then((result) => {
-      if (result.code === 200) {
-        console.log("yeah1");
-      } else {
+      if (result.code !== 200) {
         return doRefresh();
       }
+      return undefined;
     })
     .then((result) => {
-      if (result.code === 200) {
-        console.log("yeah2");
-      } else {
+      if (result.code !== 200) {
         navigate("/auth/login");
       }
+      return undefined;
     })
     .catch( (err) => {
       console.log(err);
