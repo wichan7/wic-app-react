@@ -1,32 +1,61 @@
 import React, { useRef, useState, useContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import './dashboard.css';
-import Draggable from 'react-draggable';
+import ChatNode from '../../components/ChatNode';
 
 function Dashboard() {
   let init = {
-    dialogId: "1",
-    nodes: [
+    dialogId: "7ac90665-2035-4957-8f46-dd96c123f72a",
+    name: "testchatbot",
+    dialogs: [
       {
-        nodeId: "welcome",
-        type: "welcome",
-        label: "welcome"
+        id: "preDialog",
+        name: "preDialog",
+        then: []
       }, {
-        nodeId: "1",
-        type: "output",
-        label: "o1"
+        id: "postDialog",
+        name: "postDialog",
+        then: []
       }, {
-        nodeId: "2",
-        type: "set",
-        label: "s2"
-      }, {
-        nodeId: "3",
-        type: "output",
-        label: "o3"
-      }, {
-        nodeId: "anything-else",
-        type: "anything-else",
-        label: "anything-else"
+        id: "mainDialog",
+        name: "mainDialog",
+        then: [
+          "welcome",
+          "o1",
+          "s2",
+          "anything-else"
+        ],
+        nodes: [
+          {
+            nodeId: "welcome",
+            type: "welcome",
+            label: "welcome",
+            then: [
+
+            ]
+          }, {
+            nodeId: "o1",
+            type: "output",
+            label: "o1",
+            then: [
+
+            ]
+          }, {
+            nodeId: "s2",
+            type: "set",
+            label: "s2",
+            then: [
+
+            ]
+          }, {
+            nodeId: "anything-else",
+            type: "anything-else",
+            label: "anything-else",
+            then: [
+
+            ]
+          }
+        ]
       }
     ]
   };
@@ -34,7 +63,7 @@ function Dashboard() {
 
   function addNode() {
     let d = { ...dialog };
-    d.nodes.push({ nodeId: "d", type: "set" });
+    d.dialogs[2].nodes.push({ nodeId: "d", type: "set" });
     setDialog(d);
   }
 
@@ -42,7 +71,7 @@ function Dashboard() {
     <>
       <div className="dashboard-root">
         <div className="title">
-          <span>챗봇명: TEST</span>
+          <span>{dialog.name}</span>
         </div>
         <div className="dialog-editor">
           <ul className="option-nav">
@@ -53,16 +82,7 @@ function Dashboard() {
           <div className="dialog">
             <div className="panel">
               {
-                dialog.nodes.map(e => (
-                  <Draggable>
-                    <span id="node" className={e.type}>
-                      <span>
-                        <span>{e.type}</span>
-                        <span>{e.label}</span>
-                      </span>
-                    </span>
-                  </Draggable>
-                ))
+                dialog.dialogs[2].nodes.map(e => (<ChatNode node={e}></ChatNode>))
               }
             </div>
             <div className="list">list</div>

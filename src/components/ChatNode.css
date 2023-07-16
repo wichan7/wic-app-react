@@ -1,0 +1,43 @@
+#chat-node {
+    display: inline-block;
+    width: 130px;
+    cursor: pointer;
+}
+#chat-node > span {
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-node > span > span:nth-child(1) {
+    text-align: center;
+    color: white;
+}
+
+#chat-node > span > span:nth-child(2) {
+    display: inline-block;
+    height: 30px;
+    padding: 5px;
+    text-align: left;
+    color: black;
+    background-color: white;
+}
+
+#chat-node.welcome {
+    border: 1px solid #bdbdbd;
+    background-color: #bdbdbd;
+}
+
+#chat-node.anything-else {
+    border: 1px solid #bdbdbd;
+    background-color: #bdbdbd;
+}
+
+#chat-node.output {
+    border: 1px solid red;
+    background-color: red;
+}
+
+#chat-node.set {
+    border: 1px solid blue;
+    background-color: blue;
+}
