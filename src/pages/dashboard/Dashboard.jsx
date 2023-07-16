@@ -1,65 +1,10 @@
 import React, { useRef, useState, useContext, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import dummyDialog from '../../utils/dummy.js';
 import './dashboard.css';
-import ChatNode from '../../components/ChatNode';
+import ChatDialog from '../../components/ChatDialog';
 
 function Dashboard() {
-  let init = {
-    dialogId: "7ac90665-2035-4957-8f46-dd96c123f72a",
-    name: "testchatbot",
-    dialogs: [
-      {
-        id: "preDialog",
-        name: "preDialog",
-        then: []
-      }, {
-        id: "postDialog",
-        name: "postDialog",
-        then: []
-      }, {
-        id: "mainDialog",
-        name: "mainDialog",
-        then: [
-          "welcome",
-          "o1",
-          "s2",
-          "anything-else"
-        ],
-        nodes: [
-          {
-            nodeId: "welcome",
-            type: "welcome",
-            label: "welcome",
-            then: [
-
-            ]
-          }, {
-            nodeId: "o1",
-            type: "output",
-            label: "o1",
-            then: [
-
-            ]
-          }, {
-            nodeId: "s2",
-            type: "set",
-            label: "s2",
-            then: [
-
-            ]
-          }, {
-            nodeId: "anything-else",
-            type: "anything-else",
-            label: "anything-else",
-            then: [
-
-            ]
-          }
-        ]
-      }
-    ]
-  };
-  const [dialog, setDialog] = useState(init);
+  const [dialog, setDialog] = useState(dummyDialog);
 
   function addNode() {
     let d = { ...dialog };
@@ -81,9 +26,7 @@ function Dashboard() {
           </ul>
           <div className="dialog">
             <div className="panel">
-              {
-                dialog.dialogs[2].nodes.map(e => (<ChatNode node={e}></ChatNode>))
-              }
+              <ChatDialog dialog={dialog}></ChatDialog>
             </div>
             <div className="list">list</div>
           </div>
