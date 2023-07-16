@@ -9,36 +9,42 @@ import Join from './pages/auth/Join';
 import Chpw from './pages/auth/Chpw';
 import Dashboard from './pages/dashboard/Dashboard';
 import NotFound from './pages/NotFound';
-/* context */
-import { UserContext } from "./context/UserContext";
+
 /* resources */
 import './App.css';
 import { doVerify, doRefresh } from './utils/auth';
 
 function App() {
-  const isLogin = true;
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  useEffect( () => {
+  useEffect(() => {
     console.log(pathname);
 
     if (pathname.startsWith("/auth")) {
       return;
     }
 
-    doRefresh("123")
-    .then( (data) => {
-      console.log(data)
-    } )
+    doVerify()
+    .then((result) => {
+      if (result.code === 200) {
+        console.log("yeah1");
+      } else {
+        return doRefresh();
+      }
+    })
+    .then((result) => {
+      if (result.code === 200) {
+        console.log("yeah2");
+      } else {
+        navigate("/auth/login");
+      }
+    })
     .catch( (err) => {
-      console.log(err)
-    } )
+      console.log(err);
+    })
 
-    if (!isLogin) {
-      navigate("/auth/login");
-    }
-  } );
+  });
 
   return (
     <>

@@ -31,13 +31,12 @@ export async function doJoin(data) {
 }
 
 // TODO: Access Token 유효성 검증
-export async function doVerify(accessToken) {
+export async function doVerify() {
   const uri = (process.env.REACT_APP_DASHBOARD_URL || "") + "/verify";
   const options = {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
-      "accessToken": accessToken
+      "Content-Type": "application/json"
     }
   };
 
@@ -48,18 +47,17 @@ export async function doVerify(accessToken) {
 }
 
 // TODO: 419(토큰 만료) 리턴되었을 때, 리프레시 토큰을 /auth/refresh request.
-export async function doRefresh(refreshToken) {
+export async function doRefresh() {
   const uri = (process.env.REACT_APP_DASHBOARD_URL || "") + "/refresh";
   const options = {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
-      "refreshToken": refreshToken
+      "Content-Type": "application/json"
     }
   };
 
   let result = fetch(uri, options)
-    .then( (res) => res.json());
+    .then( (res) => res.json() );
   
   return result;
 }
