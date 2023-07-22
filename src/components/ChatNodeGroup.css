@@ -1,0 +1,4 @@
+.chat-node-group {
+    display: flex;
+    flex-direction: row
+}

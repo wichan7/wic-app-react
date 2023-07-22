@@ -42,12 +42,18 @@ const dialog = {
                     type: "set",
                     label: "s2",
                     then: [
-                        "o2"
+                        "o2",
+                        "o3"
                     ]
                 }, {
                     nodeId: "o2",
                     type: "output",
                     label: "o2",
+                    then: []
+                }, {
+                    nodeId: "o3",
+                    type: "output",
+                    label: "o3",
                     then: []
                 }, {
                     nodeId: "anything-else",
